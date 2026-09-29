@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LegalLens | AI Legal Document Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Background glow -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">⚖</span>
+            <span>Legal<span class="green">Lens</span></span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">How It Works</a>
+            <a href="#about">About</a>
+        </div>
+
+        <a href="#analyzer" class="nav-button">
+            Start Analyzing ↗
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <main id="home" class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                <span class="dot"></span>
+                AI-POWERED LEGAL ANALYSIS
+            </div>
+
+            <h1>
+                Understand Legal Documents
+                <span>Without The Jargon.</span>
+            </h1>
+
+            <p class="hero-text">
+                Upload a legal document and discover potentially
+                risky clauses explained in simple, understandable language.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#analyzer" class="primary-button">
+                    Analyze a Document
+                    <span>↗</span>
+                </a>
+
+                <a href="#features" class="secondary-button">
+                    How it works
+                    <span>↓</span>
+                </a>
+
+            </div>
+
+            <div class="trust-text">
+                ✦ Simple &nbsp;&nbsp; ✦ Fast &nbsp;&nbsp; ✦ Easy to understand
+            </div>
+
+        </div>
+
+
+        <!-- HERO PREVIEW -->
+        <div class="hero-preview">
+
+            <div class="preview-glow"></div>
+
+            <div class="document-window">
+
+                <div class="window-top">
+                    <div class="window-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="window-title">
+                        LegalLens AI
+                    </div>
+                </div>
+
+                <div class="document-content">
+
+                    <div class="mini-sidebar">
+                        <div class="side-logo">⚖</div>
+                        <div class="side-line active"></div>
+                        <div class="side-line"></div>
+                        <div class="side-line"></div>
+                        <div class="side-line"></div>
+                    </div>
+
+                    <div class="analysis-preview">
+
+                        <div class="preview-header">
+                            <div>
+                                <small>DOCUMENT ANALYSIS</small>
+                                <h3>Agreement.pdf</h3>
+                            </div>
+
+                            <div class="status">
+                                ● ANALYZED
+                            </div>
+                        </div>
+
+                        <div class="risk-score">
+                            <div>
+                                <small>RISK LEVEL</small>
+                                <strong>MEDIUM</strong>
+                            </div>
+
+                            <div class="score-circle">
+                                62
+                            </div>
+                        </div>
+
+                        <div class="clause-card">
+                            <div class="clause-icon">⚠</div>
+                            <div>
+                                <strong>Penalty Clause</strong>
+                                <p>Check how much you may have to pay.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause-card">
+                            <div class="clause-icon">⚠</div>
+                            <div>
+                                <strong>Termination</strong>
+                                <p>Check when the agreement can end.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause-card safe">
+                            <div class="clause-icon">✓</div>
+                            <div>
+                                <strong>Confidentiality</strong>
+                                <p>Information must be kept private.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ANALYZER -->
+    <section id="analyzer" class="analyzer-section">
+
+        <div class="section-label">
+            ✦ DOCUMENT ANALYZER
+        </div>
+
+        <h2>
+            Put your document
+            <span>under the lens.</span>
+        </h2>
+
+        <p class="section-description">
+            Upload your document and let LegalLens identify
+            potentially risky legal language.
+        </p>
+
+
+        <div class="upload-card">
+
+            <div class="upload-icon">
+                ↑
+            </div>
+
+            <h3>Upload your document</h3>
+
+            <p>
+                Select a PDF or supported document to begin analysis.
+            </p>
+
+            <!-- IMPORTANT: keeps Flask upload functionality -->
+            <form action="/" method="POST" enctype="multipart/form-data">
+
+                <label for="file-upload" class="file-label">
+                    Choose Document
+                </label>
+
+                <input
+                    id="file-upload"
+                    type="file"
+                    name="document"
+                    accept=".pdf,.txt"
+                    required
+                >
+
+                <p id="file-name" class="file-name">
+                    No document selected
+                </p>
+
+                <button type="submit" class="analyze-button">
+                    Analyze Document
+                    <span>↗</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULTS -->
+    <section class="results-section">
+
+        <div class="section-label">
+            ✦ ANALYSIS RESULT
+        </div>
+
+        <h2>
+            Potentially Risky
+            <span>Clauses</span>
+        </h2>
+
+        <div class="result-grid">
+
+            <div class="result-card">
+                <div class="result-top">
+                    <span class="result-symbol">⚠</span>
+                    <span class="result-tag">RISK</span>
+                </div>
+
+                <h3>Penalty</h3>
+
+                <p>
+                    This clause mentions a penalty.
+                    Check how much you may have to pay.
+                </p>
+            </div>
+
+
+            <div class="result-card">
+                <div class="result-top">
+                    <span class="result-symbol">⚠</span>
+                    <span class="result-tag">RISK</span>
+                </div>
+
+                <h3>Termination</h3>
+
+                <p>
+                    This clause allows termination.
+                    Check when and how the agreement can end.
+                </p>
+            </div>
+
+
+            <div class="result-card">
+                <div class="result-top">
+                    <span class="result-symbol">⚠</span>
+                    <span class="result-tag">CHECK</span>
+                </div>
+
+                <h3>Non-Refundable</h3>
+
+                <p>
+                    This means the payment may not be returned.
+                </p>
+            </div>
+
+
+            <div class="result-card safe-card">
+                <div class="result-top">
+                    <span class="result-symbol">✓</span>
+                    <span class="result-tag safe-tag">INFO</span>
+                </div>
+
+                <h3>Confidential</h3>
+
+                <p>
+                    This creates confidentiality obligations.
+                    Check what information must be kept private.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section id="features" class="features-section">
+
+        <div class="section-label">
+            ✦ WHY LEGALLENS
+        </div>
+
+        <h2>
+            Legal language,
+            <span>made simpler.</span>
+        </h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-number">01</div>
+                <h3>Upload</h3>
+                <p>
+                    Upload your legal document in a few clicks.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">02</div>
+                <h3>Analyze</h3>
+                <p>
+                    LegalLens scans the document for potentially
+                    risky clauses and terms.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">03</div>
+                <h3>Understand</h3>
+                <p>
+                    Get simple explanations of potentially
+                    important legal language.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+
+        <div class="about-box">
+
+            <div>
+                <div class="section-label">
+                    ✦ LEGALLENS
+                </div>
+
+                <h2>
+                    See beyond the
+                    <span>legal jargon.</span>
+                </h2>
+            </div>
+
+            <p>
+                LegalLens is a student-built prototype designed to
+                make potentially difficult legal language easier to
+                understand.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCLAIMER -->
+    <footer>
+
+        <div class="disclaimer">
+            <strong>⚠ Disclaimer</strong>
+            <p>
+                LegalLens is an educational prototype and does not
+                provide legal advice. Always consult a qualified legal
+                professional for advice about your specific situation.
+            </p>
+        </div>
+
+        <div class="footer-bottom">
+            <span>⚖ LegalLens</span>
+            <span>Built for Hackathon 2026</span>
+        </div>
+
+    </footer>
+
+
+    <script>
+        const fileInput = document.getElementById("file-upload");
+        const fileName = document.getElementById("file-name");
+
+        fileInput.addEventListener("change", function () {
+            if (this.files.length > 0) {
+                fileName.textContent = "Selected: " + this.files[0].name;
+            } else {
+                fileName.textContent = "No document selected";
+            }
+        });
+    </script>
+    {% if result %}
+<div style="margin:40px auto; max-width:900px; padding:25px; background:#111; color:white; border:1px solid #20d9a0; border-radius:20px;">
+    <h2 style="color:#20d9a0;">Analysis Result</h2>
+    <pre style="white-space:pre-wrap; font-family:Arial;">{{ result }}</pre>
+</div>
+{% endif %}
+
+</body>
+</html>
